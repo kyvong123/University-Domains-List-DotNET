@@ -1,4 +1,19 @@
-<div class="card">
+<div class="card" *ngIf="!authService.roleMatch(['Admin'])">
+    <div class="col-12 offset-s3">
+      <div class="card">
+        <div class="card-image">
+          <img src="https://previews.123rf.com/images/arcady31/arcady311101/arcady31110100005/8623333-access-denied-stamp.jpg" style="height:500px;width:100%;">
+  
+        </div>
+        <div class="card-content">
+          <span class="card-title" style="color:#039be5">403 - ACCESS DENIED</span>
+          <p>You don't have the permission to access this resource.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="card" *ngIf="authService.roleMatch(['Admin'])">
     <p-table #dt1 [value]="universities" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
 	[rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-universitys p-datatable-gridlines"
 	[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"

@@ -29,6 +29,7 @@ namespace WebAPI.Controllers
                 RequiredLength = 3
             };
             IdentityResult result = manager.Create(user, model.Password);
+            manager.AddToRoles(user.Id, model.Roles);
             return result;
         }
 

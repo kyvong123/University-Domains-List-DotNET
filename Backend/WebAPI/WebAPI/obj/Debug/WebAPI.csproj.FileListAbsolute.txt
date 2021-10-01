@@ -261,7 +261,7 @@ C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-Dot
 C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-DotNET\Backend\WebAPI\WebAPI\bin\System.Web.WebPages.Razor.xml
 C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-DotNET\Backend\WebAPI\WebAPI\bin\Antlr3.Runtime.pdb
 C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-DotNET\Backend\WebAPI\WebAPI\obj\Debug\WebAPI.csprojResolveAssemblyReference.cache
-C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-DotNET\Backend\WebAPI\WebAPI\obj\Debug\WebAPI.Migrations.Initial.resources
-C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-DotNET\Backend\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.GenerateResource.Cache
 C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-DotNET\Backend\WebAPI\WebAPI\obj\Debug\WebAPI.dll
 C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-DotNET\Backend\WebAPI\WebAPI\obj\Debug\WebAPI.pdb
+C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-DotNET\Backend\WebAPI\WebAPI\obj\Debug\WebAPI.Migrations.Initial.resources
+C:\Users\Vong Le\Desktop\University Domain List .NET\University-Domains-List-DotNET\Backend\WebAPI\WebAPI\obj\Debug\WebAPI.csproj.GenerateResource.Cache

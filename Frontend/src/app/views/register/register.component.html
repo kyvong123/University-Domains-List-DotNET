@@ -45,6 +45,16 @@
                   </div>
                   <input type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password" required>
                 </div>
+
+                <div class="row" *ngIf="roles">
+                  <ul>
+                    <li *ngFor="let item of roles;let i = index">
+                      <input type="checkbox" [id]="'roles-'+i" value="{{item.Id}}" [checked]="item.selected"  (change)="updateSelectedRoles(i)">
+                      <label [for]="'roles-'+i">{{item.Name}}</label>
+                    </li>
+                  </ul>
+                </div>
+                
                 <button type="submit" [disabled]="!f.UserName.value || !f.Email.value || !f.FirstName.value || !f.LastName.value || !f.Password.value" class="btn btn-block btn-success">Create Account</button>
               </form>
             </div>

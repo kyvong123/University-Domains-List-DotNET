@@ -46,6 +46,7 @@ export class AuthService{
                     // if (user && user.token) {
                         this.loggedInStatus = true;
                         this.authtoken = user.token;
+                        localStorage.setItem('userRoles',user.role);
                         this.authname = user.username;
                         localStorage.setItem("currentUser", JSON.stringify(user))
                     // }              
@@ -66,5 +67,21 @@ export class AuthService{
             res =>{}
         ))
     }
-    
+
+    getAllRoles() {
+        var reqHeader = new HttpHeaders({ 'No-Auth': 'True' });
+        return this.http.get('http://localhost:35257/api/GetAllRoles', { headers: reqHeader });
+    }
+
+    roleMatch(allowedRoles): boolean {
+        var isMatch = false;
+        var userRoles: string[] = JSON.parse(localStorage.getItem('userRoles'));
+        allowedRoles.forEach(element => {
+          if (userRoles.indexOf(element) > -1) {
+            isMatch = true;
+            return false;
+          }
+        });
+        return isMatch;
+    }
 }

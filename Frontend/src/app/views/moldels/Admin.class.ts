@@ -4,4 +4,5 @@ export class Admin{
     Email:string;
     FirstName:string;
     LastName:string;
+    Roles: any[];
 }
