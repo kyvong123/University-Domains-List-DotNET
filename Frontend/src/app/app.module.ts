@@ -47,6 +47,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './views/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { RegisterComponent } from './views/register/register.component';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ToastModule} from 'primeng/toast';
+import { ToastrModule } from 'ngx-toastr';
 // import { CardListComponent } from './views/card-list/card-list.component';
 
 @NgModule({
@@ -54,6 +58,7 @@ import { RegisterComponent } from './views/register/register.component';
     HttpClientModule,
     HttpModule,
     BrowserModule,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
     AppAsideModule,
@@ -66,7 +71,10 @@ import { RegisterComponent } from './views/register/register.component';
     PerfectScrollbarModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
+    ToastModule,
     ChartsModule,
+    MessageModule,
+    MessagesModule,
     IconModule,
     IconSetModule.forRoot(),
   ],

@@ -53,7 +53,7 @@ export class CardListComponent implements OnInit {
   images: any[];
   ngOnInit() {
     this.loadData();
-    this.loadFavorite();
+    // this.loadFavorite();
     this.sortOptions = [
       {label: 'Name', value: 'name'},
       {label: 'Country', value: 'country'},

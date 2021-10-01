@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { ToastrService } from 'ngx-toastr'
 import { Admin } from '../moldels/Admin.class';
 import { AuthService } from '../serrvice/Auth.service';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: 'register.component.html'
+  templateUrl: 'register.component.html',
+  providers: [MessageService]
 })
 export class RegisterComponent implements OnInit {
   admin: Admin ={
@@ -20,7 +23,7 @@ export class RegisterComponent implements OnInit {
 
   myform: FormGroup;
 
-  constructor(private authService:AuthService, private router :Router) { }
+  constructor(private authService:AuthService, private router :Router, private messageService: MessageService,private toast: ToastrService) { }
   ngOnInit():void{
     this.myform = new FormGroup({
       UserName: new FormControl(''),
@@ -46,6 +49,8 @@ export class RegisterComponent implements OnInit {
         data=>{
           this.router.navigate(['/login']);
           console.log('dang ky thanh cong');
+          this.toast.success('User registration successful');
+          this.messageService.add({severity:'success',summary:'Đăng ký thành công!', detail: 'Bạn đã tạo một tài khoản mới'});
         }
       )
   }

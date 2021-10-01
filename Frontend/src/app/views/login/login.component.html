@@ -1,3 +1,4 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
 <div class="app-body">
   <main class="main d-flex align-items-center">
     <div class="container">
@@ -21,12 +22,21 @@
                     </div>
                     <input type="password" class="form-control" placeholder="Password" id="Password" autocomplete="current-Password" formControlName="Password" required>
                   </div>
+                  <div class="row" *ngIf="isLoginError">
+                    <div class="col-12">
+                      <p-message class= "col-12" severity="error" text="{{wronginput}}" ></p-message>
+                    </div>
+                    
+                  </div>
+                  <br>
                   <div class="row">
+                    
                     <div class="col-6">
-                      <button type="submit" class="btn btn-primary px-4">Login</button>
+                      
+                      <button type="submit" class="btn btn-primary px-4" [disabled]="!f.UserName.value || !f.Password.value">Login</button>
                     </div>
                     <div class="col-6 text-right">
-                      <button type="button" class="btn btn-link px-0">Forgot password?</button>
+                      <button type="button" class="btn btn-link px-0" [routerLink]="['/register']">Register</button>
                     </div>
                   </div>
                 </form>
@@ -37,6 +47,7 @@
                 <div>
                   <h2>Sign up</h2>
                   <!-- <p>Don't have an account.</p> -->
+                  
                   <button type="button" [routerLink]="['/register']" class="btn btn-primary active mt-3">Register Now!</button>
                 </div>
               </div>

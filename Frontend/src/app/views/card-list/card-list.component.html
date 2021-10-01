@@ -43,12 +43,12 @@
 					<!-- <p-columnFilter type="numeric" field="web_pages" display="menu" currency="USD"></p-columnFilter> -->
 				</div>
 			</th>		
-			<th>
+			<!-- <th>
 				<div class="p-d-flex p-jc-between p-ai-center">
 					Add Favorite Universities
-					<!-- <p-columnFilter type="numeric" field="web_pages" display="menu" currency="USD"></p-columnFilter> -->
+					<p-columnFilter type="numeric" field="web_pages" display="menu" currency="USD"></p-columnFilter>
 				</div>
-			</th>		
+			</th>		 -->
 		</tr>
         
 	</ng-template>
@@ -69,10 +69,10 @@
 			<td>
 				{{university.web_pages}}
 			</td>
-			<td>
+			<!-- <td>
 				<button  [hidden]="CheckExisted($event,university)" pButton type="button" (click)="AddFavorite($event,university)" class="p-button-raised p-button-rounded p-button-success">&nbsp;&nbsp;&nbsp;Add University&nbsp;&nbsp;&nbsp;</button>
 				<button [hidden]="!CheckExisted($event,university)" pButton type="button" (click)="RemoveFavorite($event,university)" class="p-button-raised p-button-rounded p-button-danger">Remove University</button>	
-			</td>
+			</td> -->
 		</tr>
 	</ng-template>
 	<ng-template pTemplate="emptymessage">
