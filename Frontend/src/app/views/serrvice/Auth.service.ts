@@ -6,11 +6,7 @@ import {map} from 'rxjs/operators';
 import { User } from "../moldels/User.class";
 import { Admin } from "../moldels/Admin.class";
 
-const httpOptions = {
-    headers: new HttpHeaders({
-        'Content-Type' : 'application/json'
-    })
-}
+
 
 @Injectable({
     providedIn: 'root'
@@ -38,15 +34,21 @@ export class AuthService{
     }
 
     getUser(username:string,password:string) {
-        return this.http.post<any>(this.api_url + `accounts/api/auth/`,
-        {username, password},httpOptions).pipe(
+        let httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/x-www-urlencoded','No-Auth':'True'
+            })
+        }
+        var data = "username=" + username + "&password=" + password + "&grant_type=password";
+        return this.http.post<any>('http://localhost:35257/token',
+        data,httpOptions).pipe(
             map(user=>{
-                    if (user && user.token) {
+                    // if (user && user.token) {
                         this.loggedInStatus = true;
                         this.authtoken = user.token;
                         this.authname = user.username;
                         localStorage.setItem("currentUser", JSON.stringify(user))
-                    }              
+                    // }              
                     return user;
             }));
             
@@ -56,10 +58,10 @@ export class AuthService{
     {
         let httpOptions = {
             headers: new HttpHeaders({
-                'Authorization' : ('token ' + this.authtoken) 
+                'Content-Type': 'application/json'
             })
         }
-        return this.http.post<any>('http://localhost:8000/accounts/userlist/',admin,httpOptions)
+        return this.http.post<any>('http://localhost:35257/api/User/Register',admin,httpOptions)
         .pipe(map(
             res =>{}
         ))

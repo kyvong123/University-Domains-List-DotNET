@@ -11,16 +11,16 @@ import { AuthService } from '../serrvice/Auth.service';
 })
 export class LoginComponent implements OnInit { 
   public user = {
-    username:'',
-    password:''
+    UserName:'',
+    Password:''
   };
 
   myform: FormGroup;
   constructor(private authService:AuthService, private router:Router){}
   ngOnInit(): void{
     this.myform = new FormGroup({
-      username: new FormControl(''),
-      password: new FormControl('')
+      UserName: new FormControl(''),
+      Password: new FormControl('')
     })
   }
 
@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
     //   username:username,
     //   password:password
     // }
-    console.log(this.f.username.value,this.f.password.value);
-    this.authService.getUser(this.f.username.value,this.f.password.value).pipe(first()).subscribe(
+    console.log(this.f.UserName.value,this.f.Password.value);
+    this.authService.getUser(this.f.UserName.value,this.f.Password.value).pipe(first()).subscribe(
       data =>{
         this.router.navigate(['/dashboard'])
         console.log("thanh cong")

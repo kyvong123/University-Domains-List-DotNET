@@ -10,12 +10,12 @@ import { AuthService } from '../serrvice/Auth.service';
 })
 export class RegisterComponent implements OnInit {
   admin: Admin ={
-    username:'',
-    email:'',
-    password:'',
-    is_staff:false,
-    is_superuser:false,
-    is_active:false
+    UserName:'',
+    Email:'',
+    Password:'',
+    FirstName:'',
+    LastName:'',
+
   }
 
   myform: FormGroup;
@@ -23,8 +23,11 @@ export class RegisterComponent implements OnInit {
   constructor(private authService:AuthService, private router :Router) { }
   ngOnInit():void{
     this.myform = new FormGroup({
-      username: new FormControl(''),
-      email: new FormControl('')
+      UserName: new FormControl(''),
+      Email: new FormControl(''),
+      FirstName: new FormControl(''),
+      LastName: new FormControl(''),
+      Password: new FormControl(''),
     })
   }
   get f(){
@@ -33,12 +36,11 @@ export class RegisterComponent implements OnInit {
   registerUser($event)
   {
       this.admin ={
-        username:this.f.username.value,
-        is_staff:true,
-        is_superuser:true,
-        is_active:true,
-        email:this.f.email.value,
-        password:'pbkdf2_sha256$260000$ojRFSPrAII9vLYiXj0b1ok$4BFUTM7JHpzVJu1BL/iEB6Z2wCb2oFesrnmSsBp9GWk='
+        UserName:this.f.UserName.value,
+        FirstName: this.f.FirstName.value,
+        LastName: this.f.LastName.value,
+        Email:this.f.Email.value,
+        Password:this.f.Password.value,
       }
       this.authService.postAdmin(this.admin).subscribe(
         data=>{
