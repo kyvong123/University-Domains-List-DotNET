@@ -51,6 +51,8 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
 import { ToastrModule } from 'ngx-toastr';
+import { UploadFileComponent } from './views/upload-file/upload-file.component';
+import { UploadFileModule } from './views/upload-file/upload-file.module';
 // import { CardListComponent } from './views/card-list/card-list.component';
 
 @NgModule({

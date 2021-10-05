@@ -49,6 +49,10 @@ export const routes: Routes = [
       {
         path: 'newsletter1',
         loadChildren: () => import('./views/newsletter1/newsletter1.modules').then(mt => mt.NewsLetter1Module)
+      },
+      {
+        path: 'uploadfile',
+        loadChildren: () => import('./views/upload-file/upload-file.module').then(mt => mt.UploadFileModule)
       }
     
            
