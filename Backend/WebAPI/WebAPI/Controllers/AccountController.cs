@@ -13,7 +13,7 @@ namespace WebAPI.Controllers
 {
     public class AccountController : ApiController
     {
-        [Route("api/User/Register")]
+        [Route("api/User/Register ")]
         [HttpPost]
         [AllowAnonymous]
         public IdentityResult Register(AccountModel model)

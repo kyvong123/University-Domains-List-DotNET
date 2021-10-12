@@ -2,8 +2,10 @@
 
 <div class="card">
     <h5>Advanced</h5>
-    <p-fileUpload name="demo[]" url="http://localhost:35257/api/UploadImage" (onUpload)="onUpload($event)"
-            multiple="multiple" accept="image/*" maxFileSize="1000000">
+    <p-fileUpload name="files" [headers]="hd" (onUpload)="onUpload($event)"
+    customUpload="true"
+    (uploadHandler)="onSend($event)"
+    multiple="multiple" accept="image/*" maxFileSize="1000000">
             <ng-template pTemplate="content">
                 <ul *ngIf="uploadedFiles.length">
                     <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>

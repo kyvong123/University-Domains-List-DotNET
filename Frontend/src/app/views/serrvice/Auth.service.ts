@@ -7,6 +7,10 @@ import { User } from "../moldels/User.class";
 import { Admin } from "../moldels/Admin.class";
 
 
+export interface Pictures{
+    Image:File;
+    ImagteCaption:string;
+}
 
 @Injectable({
     providedIn: 'root'
@@ -21,12 +25,17 @@ export class AuthService{
 
     authname: string = '';
 
+    authrole: any;
     api_url: string = 'http://localhost:8000/';
 
     constructor(private http:HttpClient){}
 
     setLoggedIn(value:boolean){
         this.loggedInStatus = value
+    }
+
+    get getToken(){
+        return this.authtoken
     }
 
     get isLoggedIn(){
@@ -48,6 +57,7 @@ export class AuthService{
                         this.authtoken = user.token;
                         localStorage.setItem('userRoles',user.role);
                         this.authname = user.username;
+                        this.authrole = user.role
                         localStorage.setItem("currentUser", JSON.stringify(user))
                     // }              
                     return user;
@@ -83,5 +93,34 @@ export class AuthService{
           }
         });
         return isMatch;
+    }
+
+    token:string = '';
+    formData: FormData = new FormData();
+    picture: Pictures={
+        Image:null,
+        ImagteCaption:''
+    }
+    sendFile(caption: string, fileToUpload: File) {
+        const endpoint = 'http://localhost:35257/api/UploadImage';
+        this.formData.append('Image', fileToUpload,fileToUpload.name);
+        this.formData.append('ImageCaption', caption);
+        this.picture={
+            Image:fileToUpload,
+            ImagteCaption:caption
+        }
+        this.token = JSON.parse(localStorage.getItem('currentUser')).access_token;
+        let httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'multipart/form-data','No-Auth':'True',
+                'Accept': 'multipart/form-data','Authorization': 'Bearer '+ this.token
+            })
+        }
+        return this.http
+          .post<any>(endpoint, this.formData,httpOptions).subscribe(
+              ()=>{
+                  console.log('thanh cong')
+              }
+          );
     }
 }
