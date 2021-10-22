@@ -13,8 +13,8 @@ namespace WebAPI.Controllers
 {
     public class AccountController : ApiController
     {
-        [Route("api/User/Register ")]
         [HttpPost]
+        [Route("api/User/Register")]
         [AllowAnonymous]
         public IdentityResult Register(AccountModel model)
         {
@@ -23,7 +23,7 @@ namespace WebAPI.Controllers
             ApplicationUser user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
-            user.EmailConfirmed = true;
+            user.EmailConfirmed = true;                   
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 3
@@ -60,6 +60,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
+
+
+
         [Authorize(Roles = "Author")]
         [Route("api/ForAuthorRole")]
         public string ForAuthorRole()
