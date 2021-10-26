@@ -13,7 +13,7 @@ namespace WebAPI.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202110210744512_Initial"; }
+            get { return "202110260633405_Initial"; }
         }
         
         string IMigrationMetadata.Source
